@@ -4,6 +4,7 @@ class Directory extends Component {
     constructor(props) {
         super(props); 
         this.state = {
+    
             campsites: [
             {
                 id: 0,
@@ -35,12 +36,14 @@ class Directory extends Component {
                 }
             
             ],
-    };
+    }; 
+}
+
 
     render() {
         const directory = this.state.campsites.map(campsite => {
             return (
-                <div className="col"> 
+                <div key={campsite.id}className="col"> 
                     <img src={campsite.image} alt={campsite.name} />
                     <h2>{campsite.name}</h2> 
                     <p>{campsite.description}</p>
@@ -48,16 +51,16 @@ class Directory extends Component {
             ); 
         });
 
-
-
-        return (
+            return (
                 <div className= "container">
                     <div className="row">
                         {directory}
                     </div>
                 </div>
         );
-    }
+   }
+        }
+        
+    
 
-
-export default Directory;
+    export default Directory;
