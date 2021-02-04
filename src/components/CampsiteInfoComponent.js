@@ -1,9 +1,21 @@
-import React, { Component } from 'react'; 
+import React from 'react'; 
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
-class CampsiteInfo extends Component {
+function RenderSelectedCampsite({campsite}) {
+    return(
+        <div className="col-md-5 m-1">
+            <Card>
+                <CardImg top src={campsite.image} alt={campsite.name} />
+                <CardBody>
+                    <CardTitle>{campsite.name}</CardTitle> 
+                    <CardText>{campsite.description}</CardText>
+                </CardBody>
+            </Card>
+            </div>
+    );
+}
     
- RenderComments(comments) {
+ function RenderComments({comments}) {
      if (comments) {
          return(
              <div className="col-md-5 m-1">
@@ -28,37 +40,21 @@ class CampsiteInfo extends Component {
    
 
 
-RenderSelectedCampsite(campsite) {
-        return (
-            <div className="col-md-5 m-1">
-            <Card>
-                <CardImg top src={campsite.image} alt={campsite.name} />
-                <CardBody>
-                    <CardTitle>{campsite.name}</CardTitle> 
-                    <CardText>{campsite.description}</CardText>
-                </CardBody>
-            </Card>
-            </div>
-        )
-    
-}
 
-
-
-render(){
-    if (this.props.campsite) {
+function CampsiteInfo(props) {
+    if (props.campsite) {
         return (
             <div className="container">
             <div className="row">
-                { this.RenderSelectedCampsite(this.props.campsite) } 
-                { this.RenderComments(this.props.campsite.comments)}
+                <RenderSelectedCampsite campsite={props.campsite} /> 
+                <RenderComments campsite={props.campsite.comments} />
                 </div>
             </div>
         );
     }
         return (<div />)
     } 
-}
+
 
 
 
