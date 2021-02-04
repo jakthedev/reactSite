@@ -29,7 +29,7 @@ class Main extends Component {
               <CampsiteInfo campsite={this.state.campsites.filter(campsite => campsite.id === this.state.selectedCampsite)[0]} />
           </div>
       );
-  }
+  };
 }
 
 export default Main;

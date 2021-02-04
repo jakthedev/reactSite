@@ -1,7 +1,7 @@
 import React from 'react'; 
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
-function RenderSelectedCampsite({campsite}) {
+function RenderCampsite({campsite}) {
     return(
         <div className="col-md-5 m-1">
             <Card>
@@ -46,8 +46,8 @@ function CampsiteInfo(props) {
         return (
             <div className="container">
             <div className="row">
-                <RenderSelectedCampsite campsite={props.campsite} /> 
-                <RenderComments campsite={props.campsite.comments} />
+                <RenderCampsite campsite={props.campsite} /> 
+                <RenderComments comments={props.campsite.comments} />
                 </div>
             </div>
         );
