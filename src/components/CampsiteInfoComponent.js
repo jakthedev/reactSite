@@ -8,14 +8,15 @@ class CampsiteInfo extends Component {
          return(
              <div className="col-md-5 m-1">
                  <h4>Comments</h4>
-                 { comments.map( comments = comment =>  {
+                 { comments.map( comments =>  {
+                     return(
                      <div key={comments.id} >
                      <div> {comments.text}</div>
                      <div>{comments.author}
-                         {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
+                         {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comments.date)))}
                          </div>
                          </div>
-
+                     );
                     
                  }) }
              </div>
