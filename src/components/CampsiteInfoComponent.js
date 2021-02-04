@@ -11,10 +11,10 @@ class CampsiteInfo extends Component {
                  { comments.map( comments =>  {
                      return(
                      <div key={comments.id} >
-                     <div> {comments.text}</div>
-                     <div>{comments.author}
-                         {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comments.date)))}
-                         </div>
+                     <p> {comments.text}<br />
+                     -- {comments.author},
+                         {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', 
+                         day: '2-digit'}).format(new Date(Date.parse(comments.date)))}</p>
                          </div>
                      );
                     
@@ -48,17 +48,18 @@ RenderSelectedCampsite(campsite) {
 render(){
     if (this.props.campsite) {
         return (
+            <div className="container">
             <div className="row">
                 { this.RenderSelectedCampsite(this.props.campsite) } 
                 { this.RenderComments(this.props.campsite.comments)}
+                </div>
             </div>
         );
     }
-    else {
         return (<div />)
     } 
 }
-}
+
 
 
 export default CampsiteInfo;
