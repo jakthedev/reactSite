@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
 import Directory from './DirectoryComponent';
+import Header from './HeaderComponent';
 import  CampsiteInfo  from './CampsiteInfoComponent';
 import { CAMPSITES } from '../shared/campsites';
 
@@ -20,11 +20,7 @@ class Main extends Component {
   render() {
       return (
           <div >
-              <Navbar dark color="primary">
-              <div className="container">
-                  <NavbarBrand href="/">NuCamp</NavbarBrand>
-              </div>
-              </Navbar>
+              <Header />
               <Directory campsites={this.state.campsites} onClick={campsiteid => this.onCampsiteSelect(campsiteid)}/>
               <CampsiteInfo campsite={this.state.campsites.filter(campsite => campsite.id === this.state.selectedCampsite)[0]} />
           </div>
