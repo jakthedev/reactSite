@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Directory from './DirectoryComponent';
 import Header from './HeaderComponent'; 
-import Footer from './FooterComponent';
+import Footer from './FooterComponent'; 
+import Home from './HomeComponent'; 
+import { Switch, Route, Redirect } from 'react-router-dom';
 import  CampsiteInfo  from './CampsiteInfoComponent';
 import { CAMPSITES } from '../shared/campsites';
 
@@ -10,20 +12,28 @@ class Main extends Component {
     super(props); 
     this.state = {
       campsites: CAMPSITES,
-      selectedCampsite:null
+      
     };
   }
 
-  onCampsiteSelect(campsiteid) {
-    this.setState({selectedCampsite: campsiteid});
-}
+
 
   render() {
+      const HomePage = () => {
+        return (
+            <Home />
+        );
+      }
       return (
           <div >
-              <Header />
-              <Directory campsites={this.state.campsites} onClick={campsiteid => this.onCampsiteSelect(campsiteid)}/>
-              <CampsiteInfo campsite={this.state.campsites.filter(campsite => campsite.id === this.state.selectedCampsite)[0]} />
+              <Header /> 
+              <Switch>
+                <Route path='/home' component={HomePage} /> 
+                <Route exact path='/directory' render={() => <Directory campsites={this.state.campsites}
+                />} />
+              <Directory campsites={this.state.campsites} />
+              </Switch>
+            
               <Footer />
           </div>
       );
