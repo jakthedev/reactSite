@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron } from 'reactstrap';
+import { Nav, Navbar, NavLink, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron } from 'reactstrap';
 
 class Header extends Component {
 
@@ -35,7 +35,31 @@ class Header extends Component {
                     <div className="container">
                         <NavbarBrand className="mr-auto" href="/"><img src="/assets/images/logo.png" height="30"
                         width="30" alt="Nucamp Logo" /></NavbarBrand>
-                        <NavbarToggler onClick={this.toggleNav} />
+                        <NavbarToggler onClick={this.toggleNav} /> 
+                        <Collapse isOpen={this.state.isNavOpen} navbar>
+                            <Nav navbar>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/home">
+                                       <i className="fa fa-home fa-lg" /> Home 
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/directory">
+                                        <i className="fa fa-list fa-lg" /> Directory
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/aboutus">
+                                        <i className="fa fa-info fa-lg" /> About Us
+                                    </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                    <NavLink className="nav-link" to="/directory">
+                                        <i className="fa fa-home fa-lg" /> Contact Us
+                                    </NavLink>
+                                </NavItem>
+                            </Nav>
+                        </Collapse>
                     </div>
                 </Navbar>
             </React.Fragment>
