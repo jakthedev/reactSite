@@ -46,8 +46,16 @@ class Main extends Component {
             +match.params.campsiteId)}
             
           partners={this.state.partners.filter(partner => partner.campsiteId ===
-            +match.params.campsiteId)[0]}/> 
+            +match.params.campsiteId)}/> 
         
+        );
+      }
+
+      const AboutWithId = () => {
+        return (
+          <About 
+            partners={this.state.partners} />
+            
         );
       }
 
@@ -61,7 +69,7 @@ class Main extends Component {
                 <Route path='/directory/:campsiteId' component={CampsiteWithId} />
 
                 <Route exact path='/contact' component={Contact} />
-                <Route exact path='/about' component={About} />
+                <Route exact path='/about' component={AboutWithId} />
               <Redirect to='/home' />
               </Switch>
             

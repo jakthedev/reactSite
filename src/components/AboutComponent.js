@@ -3,13 +3,39 @@ import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'r
 import { Link } from 'react-router-dom';
 
 
-function About(props) {
+
+
+function RenderPartner({partner}) {
+
+    if (partner) {
+        return (
+          <> 
+            <Media object src={partner.image} alt={partner.name} width="150"/>
+             <Media body className="ml-5 mb-4">
+                <Media heading >{partner.name} 
+                    </Media>{partner.description}
+                </Media>
+                </>
+            );
+            
+    }else {
+    return (
+        <div />
+    )
+    }
     
-    // const partners = props.partners.map(partner => {
-    //     return (
-    //         <h5>{partner.name}</h5>
-    //     );
-    // });
+}
+
+
+function About(props) {
+    console.log(props)
+    const partners = props.partners.map(partner => {
+        return (
+            <h5>{partner.name}</h5>
+        );
+    });
+
+    
 
     return (
         <div className="container">
@@ -65,7 +91,7 @@ function About(props) {
                 </div>
                 <div className="col mt-4">
                     <Media list>
-                        {/* {partners} */}
+                        {partners}
                     </Media>
                 </div>
             </div>
