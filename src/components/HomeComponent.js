@@ -4,28 +4,29 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 function RenderHomeCard({item}) {
     return (
         <Card>
-            {/* <CardImg src={item.image} alt={item.name} />
+            <CardImg src={item.image} alt={item.name} />
             <CardBody>
                 <CardTitle>{item.name}</CardTitle> 
                 <CardText>{item.description}</CardText>
-            </CardBody> */}
+            </CardBody>
         </Card>
     );
 }
 
 
-function Home(props) {
+function Home(props) { 
+    console.log(props);
     return(
         <div className="container">
             <div className="row">
-                <div className="col-md-m-1">
+                <div className="col-md m-1">
                     <RenderHomeCard item={props.campsite} />
                 </div>
-                <div className="col-md-m-1">
+                <div className="col-md m-1">
                     <RenderHomeCard item={props.promotion} />
                 </div>
-                <div className="col-md-m-1">
-                    <RenderHomeCard item={props.parnter} />
+                <div className="col-md m-1">
+                    <RenderHomeCard item={props.partner} />
                 </div>
                 
             </div>
