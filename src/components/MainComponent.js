@@ -60,7 +60,7 @@ class Main extends Component {
                 <Directory campsites={this.state.campsites} />} />
                 <Route path='/directory/:campsiteId' component={CampsiteWithId} />
 
-                <Route exact path='/contactus' component={Contact} />
+                <Route exact path='/contact' component={Contact} />
                 <Route exact path='/about' component={About} />
               <Redirect to='/home' />
               </Switch>
