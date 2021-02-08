@@ -30,8 +30,13 @@ function RenderPartner({partner}) {
 function About(props) {
     console.log(props)
     const partners = props.partners.map(partner => {
-        return (
-            <h5>{partner.name}</h5>
+        return ( 
+            <Media tag="li" key={partner.id}>
+            
+                    <RenderPartner partner={partner}/>
+            
+
+            </Media>
         );
     });
 
