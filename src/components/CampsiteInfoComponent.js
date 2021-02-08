@@ -41,7 +41,7 @@ function RenderCampsite({campsite}) {
 
 
 
-function CampsiteInfo(props) {
+function Campsiteinfo(props) {
     if (props.campsite) {
         return (
             <div className="container">
@@ -58,4 +58,4 @@ function CampsiteInfo(props) {
 
 
 
-export default CampsiteInfo;
+export default Campsiteinfo;

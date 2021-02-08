@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Directory from './DirectoryComponent';
-import CampsiteInfo from './CampsiteInfoComponent';
+import Campsiteinfo from './CampsiteInfoComponent';
 import Header from './HeaderComponent'; 
 import Footer from './FooterComponent'; 
 import Home from './HomeComponent';  
@@ -30,12 +30,13 @@ class Main extends Component {
       const HomePage = () => {
         return (
             <Home 
-              campsite={this.state.campsites.filter(campsite => campsite => campsite.featured)[0]}
+              campsite={this.state.campsites.filter(campsite => campsite.featured)[0]}
               promotion={this.state.promotions.filter(promotion => promotion.featured.featured)[0]}
               partner={this.state.partners.filter(partner => partner.featured)[0]}
             />
         );
-      }
+      };
+
       return (
           <div >
               <Header /> 
