@@ -29,6 +29,12 @@ class Contact extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    handleBlur = (field) => () => {
+        this.setState({
+            touched {...this.state.touched, [field]: true}
+        });
+    }
+
     handleInputChange(event) {
         const target = event.target; 
         const name = target.name; 
