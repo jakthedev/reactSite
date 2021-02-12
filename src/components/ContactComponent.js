@@ -1,8 +1,45 @@
-import React from 'react';
-import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import React, { Component } from 'react';
+import { Breadcrumb, BreadcrumbItem, Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { render } from 'react-dom';
 
-function Contact(props) {
+class Contact extends Component { 
+
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            firstName: '', 
+            lastName: '',
+            phoneNum: '', 
+            email: '', 
+            agree: false, 
+            contactType: 'By Phone', 
+            feedback: '' 
+        };
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleInputChange(event) {
+        const target = event.target; 
+        const name = target.name; 
+        const value = target.type ==='checkbox' ? target.checked : target.value;
+
+        this.setState({
+            [name]: value
+        });
+    }
+
+    handleSubmit(event) {
+        console.log('Current state is: ' + JSON.stringify(this.state));
+        alert('Current state is: ' + JSON.stringify(this.state));
+        event.preventDefault();
+    }
+
+    render() {
     return (
         <div className="container">
             <div className="row">
@@ -33,5 +70,7 @@ function Contact(props) {
         </div>
     );
 }
+}
+
 
 export default Contact;
