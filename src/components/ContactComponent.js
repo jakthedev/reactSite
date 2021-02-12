@@ -16,7 +16,13 @@ class Contact extends Component {
             email: '', 
             agree: false, 
             contactType: 'By Phone', 
-            feedback: '' 
+            feedback: '', 
+            touched: { 
+                firstName: false, 
+                lastName: false, 
+                phoneNum: false, 
+                email: false
+            }
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -55,6 +61,7 @@ class Contact extends Component {
                                     <Input type="text" id="firstName" name="firstName"
                                         placeholder="First Name"
                                         value={this.state.firstName}
+                                        onBlur={this.handleBlur("firstName")}
                                         onChange={this.handleInputChange} />
                                 </Col>
                             </FormGroup>
@@ -64,6 +71,7 @@ class Contact extends Component {
                                     <Input type="text" id="lastName" name="lastName"
                                         placeholder="Last Name"
                                         value={this.state.lastName}
+                                        onBlur={this.handleBlur("lastName")}
                                         onChange={this.handleInputChange} />
                                 </Col>                        
                             </FormGroup>
@@ -72,7 +80,8 @@ class Contact extends Component {
                                 <Col md={10}>
                                     <Input type="tel" id="phoneNum" name="phoneNum"
                                         placeholder="Phone number"
-                                        value={this.state.phoneNum}
+                                        value={this.state.phoneNum} 
+                                        onBlur={this.handleBlur("phoneNum")}
                                         onChange={this.handleInputChange} />
                                 </Col>
                             </FormGroup>
@@ -81,7 +90,8 @@ class Contact extends Component {
                                 <Col md={10}>
                                     <Input type="email" id="email" name="email"
                                         placeholder="Email"
-                                        value={this.state.email}
+                                        value={this.state.email} 
+                                        onBlur={this.handleBlur("email")}
                                         onChange={this.handleInputChange} />
                                 </Col>
                             </FormGroup>
