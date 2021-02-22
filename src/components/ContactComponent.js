@@ -120,6 +120,16 @@ class Contact extends Component {
                                             isNumber
                                         }}
                                     /> 
+                                    <Errors
+                                        className="text-danger"
+                                        model=".firstName" 
+                                        show="touched" 
+                                        component="div" 
+                                        messages={{
+                                            required: 'Required', 
+                                            minLength: 'Must enter at least 2 characters', 
+                                            maxLength: 
+                                        }}
                                 </Col>
                             </Row>
                             <Row className="Form-group">
